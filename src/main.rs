@@ -1,15 +1,21 @@
 use std::io;
 
 fn main() {
-    let a = [1,2,3,4,5];
-    let mut index = String::new();
+    let mut user_input: String = String::new();
 
-    println!("Please enter which index you want to access:");
-
-    io::stdin().read_line(&mut index).expect("Failed to read line");
-
-    let index: usize = index.trim().parse().expect("Index entered was not a number");
-
-    let element = a[index];
-    println!("Your element at index {index} is: {element}");
+    println!("Hey, have you had dinner yet? (Y/N)");
+    match io::stdin().read_line(&mut user_input){
+        Ok(_) => {
+            user_input = user_input.trim().to_string();
+            
+            if user_input.eq_ignore_ascii_case("Y"){
+                println!("Good :)");
+            } else if user_input.eq_ignore_ascii_case("N") {
+                println!("Sorry to hear that :(");
+            } else {
+                println!("Invalid input. Please try again later.");
+            }
+        }
+        Err(error) => println!("error: {error}")
+    }
 }
