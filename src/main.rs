@@ -1,7 +1,6 @@
 fn main() {
-    let words = ["spider","man", "=", "peter","parker"];
-
-    for word in words{
-        print!("{word} ");
+    for number in (1..4).rev() {
+        print!("{number} ");
     }
+    println!("Take Off");
 }
