@@ -1,6 +1,8 @@
-
 fn main() {
-    let condition: bool = false;
-    let x: i8 = if condition { 5 } else { 6 };
-    println!("Value of x is {x}");
+    let mut count = 10;
+    while count != 0 {
+        println!("{count}");
+        count -= 1;
+    }
+    println!("TAKE OFFF !!!");
 }
