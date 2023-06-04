@@ -1,21 +1,13 @@
-use std::io;
 
 fn main() {
-    let mut user_input: String = String::new();
+    let x = {
+        let y = 1;
+        y + 20
+    };
 
-    println!("Hey, have you had dinner yet? (Y/N)");
-    match io::stdin().read_line(&mut user_input){
-        Ok(_) => {
-            user_input = user_input.trim().to_string();
-            
-            if user_input.eq_ignore_ascii_case("Y"){
-                println!("Good :)");
-            } else if user_input.eq_ignore_ascii_case("N") {
-                println!("Sorry to hear that :(");
-            } else {
-                println!("Invalid input. Please try again later.");
-            }
-        }
-        Err(error) => println!("error: {error}")
-    }
+    another_function(x);
+}
+
+fn another_function(x: i8){
+    println!("The value of x is {x}");
 }
