@@ -1,13 +1,18 @@
 fn main() {
-    let mut name = String::from("Pranaya");
-    name.push_str(" Shrestha");
+    let mut x = 5;
+    let mut y = x;
+    x += 1;
+    y += 2;
 
-    println!("Full name is {name}");
+    println!("Value of x is {x} ");
+    println!("Value of y is {y} ");
 
-    {
-        let mut username = String::from("pshrest2");
-        username.push_str("1234");
-        println!("Username is {username}");
-    }
-    println!("Username outside the scope is {username}");
+
+    let mut user1 = String::from("Peter");
+    let mut user2 = user1;
+
+    user1.push_str(" Parker");
+    
+    println!("User 1 is {user1}");
+    println!("User 2 is {user2}");
 }
