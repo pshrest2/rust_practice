@@ -1,8 +1,9 @@
 fn main() {
-    let mut count = 10;
-    while count != 0 {
-        println!("{count}");
-        count -= 1;
+    let mut index = 0;
+    let numbers = ["spider","man", "=", "peter","parker"];
+
+    while index < numbers.len() {
+        print!("{} ", numbers[index]);
+        index += 1;
     }
-    println!("TAKE OFFF !!!");
 }
