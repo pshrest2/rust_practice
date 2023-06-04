@@ -4,5 +4,6 @@ fn main() {
 }
 
 fn length(variable: &String) -> usize {
+    variable.push_str(" Babu");
     variable.len()
 }
