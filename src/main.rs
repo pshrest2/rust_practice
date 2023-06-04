@@ -1,18 +1,6 @@
 
 fn main() {
-    let x = {
-        let y = 1;
-        y + 20
-    };
-
-    display_x(x);
-    println!("The value of y is{}", calculate_y());
-}
-
-fn display_x(x: i8){
-    println!("The value of x is {x}");
-}
-
-fn calculate_y() -> i32 {
-    5
+    let condition: bool = false;
+    let x: i8 = if condition { 5 } else { 6 };
+    println!("Value of x is {x}");
 }
