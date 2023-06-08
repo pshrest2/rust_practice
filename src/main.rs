@@ -1,9 +1,18 @@
 fn main() {
-    let some_string = no_dangle();
-    println!("Some string is {some_string}");
+    let sentence = String::from("  hello world");
+    let first_word = first_word(&sentence);
+    println!("First word is {first_word}");
 }
 
-fn no_dangle() -> String {
-    let s = String::from("some string");
-    s
+fn first_word(sentence: &String) -> &str {
+    let trimmed = sentence.trim();
+    let bytes = trimmed.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &trimmed[0..i];
+        }
+    }
+
+    &trimmed[..]
 }
