@@ -1,14 +1,9 @@
 fn main() {
-    let object = Rectangle {
-        length: 10,
-        breadth: 10
-    };
-    let area = object.area();
-    println!("The length is {}", object.length);
-    println!("The breadth is {}", object.breadth);
-    println!("Therefore, the area is {area}");
-    println!("object is {:#?}", object);
-    dbg!(&object);
+    let rect1 = Rectangle { length: 10, breadth: 10 };
+    let rect2 = Rectangle { length: 10, breadth: 10 };
+    let rect3 = Rectangle { length: 15, breadth: 20 };
+    println!("rect1 can hold rect2: {}", rect1.can_hold(&rect2));
+    println!("rect1 can hold rect3: {}", rect1.can_hold(&rect3));
 }
 
 #[derive(Debug)]
@@ -20,5 +15,11 @@ struct Rectangle {
 impl Rectangle {
     fn area(&self) -> u32 {
         self.length * self.breadth
+    }
+
+    fn can_hold(&self, rectangle: &Rectangle) -> bool {
+        let area_self = self.area();
+        let area_rect = rectangle.area();
+        if area_self >= area_rect { true } else { false }
     }
 }
