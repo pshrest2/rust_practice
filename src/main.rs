@@ -20,6 +20,7 @@ impl Rectangle {
     fn can_hold(&self, rectangle: &Rectangle) -> bool {
         let area_self = self.area();
         let area_rect = rectangle.area();
-        if area_self >= area_rect { true } else { false }
+        
+        area_self >= area_rect
     }
 }
