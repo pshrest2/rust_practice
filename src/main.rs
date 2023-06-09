@@ -1,23 +1,21 @@
 fn main() {
-    let sentence = String::from("  hello world");
-    let first_word = first_word(&sentence);
-
-    println!("First word is {first_word}");
-
-    let array = [1,2,3,4,5];
-    let sliced_array = &array[1..3];
-    assert_eq!(sliced_array, &[2,3], "Testing that slices matches");
+    let user = build_user(String::from("agraham"), String::from("agraham@stjude.org"));
+    let is_or_not = if user.active { String::from("is") } else { String::from("is not") };
+    println!("{} {is_or_not} active and has logged in {} times with email {}", user.username, user.sign_in_count, user.email);
 }
 
-fn first_word(sentence: &str) -> &str {
-    let trimmed = sentence.trim();
-    let bytes = trimmed.as_bytes();
-
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
-            return &trimmed[0..i];
-        }
+fn build_user (username: String, email: String) -> User {
+    User {
+        active: true,
+        username,
+        email,
+        sign_in_count: 1
     }
+}
 
-    &trimmed[..]
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64
 }
